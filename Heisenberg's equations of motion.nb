@@ -1,0 +1,427 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15240,        417]
+NotebookOptionsPosition[     14889,        400]
+NotebookOutlinePosition[     15265,        416]
+CellTagsIndexPosition[     15222,        413]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "This", " ", "Mathematica", " ", "file", " ", "computes", " ", "the", " ",
+      "Heisenberg", " ", "equation", " ", "of", " ", "motion"}], ",", " ", 
+    RowBox[{
+    "which", " ", "was", " ", "used", " ", "to", " ", "compute", " ", "the", 
+     " ", "equations", " ", "highlighted", " ", "in", " ", "Appendix", " ", 
+     "A", " ", "and", " ", "Appendix", " ", "C", " ", "of", " ", 
+     RowBox[{"Phys", ".", "Rev", ".", "A"}], " ", "98"}], ",", 
+    RowBox[{"063837", 
+     RowBox[{
+      RowBox[{"(", "2018", ")"}], ".", " ", "Note"}], " ", "that", " ", "it", 
+     " ", "requires", " ", "additional", " ", "package", " ", 
+     "\"\<Quantum Mathematica\>\"", " ", 
+     RowBox[{"installed", ".", " ", "This"}], " ", "is", " ", "in", " ", 
+     "absence", " ", "of", " ", "dissipaton", " ", "and", " ", "the", " ", 
+     "noise", " ", "terms", " ", "were", " ", "added", " ", "later", " ", 
+     "by", " ", 
+     RowBox[{"hand", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<Quantum`Notation`\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<Quantum`QHD`\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SetQuantumAliases", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SetQuantumObject", "[", 
+     RowBox[{"a", ",", 
+      SubscriptBox["\[Sigma]p", "A"], ",", " ", 
+      SubscriptBox["\[Sigma]z", "A"], ",", " ", 
+      SubscriptBox["\[Sigma]m", "A"], ",", 
+      SubscriptBox["\[Sigma]p", "B"], ",", " ", 
+      SubscriptBox["\[Sigma]z", "B"], ",", " ", 
+      SubscriptBox["\[Sigma]m", "B"]}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       RowBox[{"\[LeftDoubleBracket]", 
+        TagBox[
+         RowBox[{"a", ",", 
+          SuperscriptBox["a", "\[Dagger]"]}],
+         Quantum`Notation`zz080KetArgs,
+         Editable->True,
+         Selectable->True], "\[RightDoubleBracket]"}], "-"],
+      Quantum`Notation`zz050Commutator,
+      Editable->False,
+      Selectable->False], "=", "1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       RowBox[{"\[LeftDoubleBracket]", 
+        TagBox[
+         RowBox[{
+          SubscriptBox["\[Sigma]p", "A"], ",", 
+          SubscriptBox["\[Sigma]m", "A"]}],
+         Quantum`Notation`zz080KetArgs,
+         Editable->True,
+         Selectable->True], "\[RightDoubleBracket]"}], "-"],
+      Quantum`Notation`zz050Commutator,
+      Editable->False,
+      Selectable->False], "=", " ", 
+     SubscriptBox["\[Sigma]z", "A"]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       RowBox[{"\[LeftDoubleBracket]", 
+        TagBox[
+         RowBox[{
+          SubscriptBox["\[Sigma]z", "A"], ",", 
+          SubscriptBox["\[Sigma]p", "A"]}],
+         Quantum`Notation`zz080KetArgs,
+         Editable->True,
+         Selectable->True], "\[RightDoubleBracket]"}], "-"],
+      Quantum`Notation`zz050Commutator,
+      Editable->False,
+      Selectable->False], "=", 
+     RowBox[{"2", 
+      SubscriptBox["\[Sigma]p", "A"]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       RowBox[{"\[LeftDoubleBracket]", 
+        TagBox[
+         RowBox[{
+          SubscriptBox["\[Sigma]z", "A"], ",", 
+          SubscriptBox["\[Sigma]m", "A"]}],
+         Quantum`Notation`zz080KetArgs,
+         Editable->True,
+         Selectable->True], "\[RightDoubleBracket]"}], "-"],
+      Quantum`Notation`zz050Commutator,
+      Editable->False,
+      Selectable->False], "=", 
+     RowBox[{
+      RowBox[{"-", "2"}], 
+      SubscriptBox["\[Sigma]m", "A"]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       RowBox[{"\[LeftDoubleBracket]", 
+        TagBox[
+         RowBox[{"a", ",", 
+          SubscriptBox["\[Sigma]p", "A"]}],
+         Quantum`Notation`zz080KetArgs,
+         Editable->True,
+         Selectable->True], "\[RightDoubleBracket]"}], "-"],
+      Quantum`Notation`zz050Commutator,
+      Editable->False,
+      Selectable->False], "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       RowBox[{"\[LeftDoubleBracket]", 
+        TagBox[
+         RowBox[{"a", ",", 
+          SubscriptBox["\[Sigma]m", "A"]}],
+         Quantum`Notation`zz080KetArgs,
+         Editable->True,
+         Selectable->True], "\[RightDoubleBracket]"}], "-"],
+      Quantum`Notation`zz050Commutator,
+      Editable->False,
+      Selectable->False], "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       RowBox[{"\[LeftDoubleBracket]", 
+        TagBox[
+         RowBox[{"a", ",", 
+          SubscriptBox["\[Sigma]z", "A"]}],
+         Quantum`Notation`zz080KetArgs,
+         Editable->True,
+         Selectable->True], "\[RightDoubleBracket]"}], "-"],
+      Quantum`Notation`zz050Commutator,
+      Editable->False,
+      Selectable->False], "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       RowBox[{"\[LeftDoubleBracket]", 
+        TagBox[
+         RowBox[{
+          SuperscriptBox["a", "\[Dagger]"], ",", 
+          SubscriptBox["\[Sigma]p", "A"]}],
+         Quantum`Notation`zz080KetArgs,
+         Editable->True,
+         Selectable->True], "\[RightDoubleBracket]"}], "-"],
+      Quantum`Notation`zz050Commutator,
+      Editable->False,
+      Selectable->False], "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       RowBox[{"\[LeftDoubleBracket]", 
+        TagBox[
+         RowBox[{
+          SuperscriptBox["a", "\[Dagger]"], ",", 
+          SubscriptBox["\[Sigma]m", "A"]}],
+         Quantum`Notation`zz080KetArgs,
+         Editable->True,
+         Selectable->True], "\[RightDoubleBracket]"}], "-"],
+      Quantum`Notation`zz050Commutator,
+      Editable->False,
+      Selectable->False], "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       RowBox[{"\[LeftDoubleBracket]", 
+        TagBox[
+         RowBox[{
+          SuperscriptBox["a", "\[Dagger]"], ",", 
+          SubscriptBox["\[Sigma]z", "A"]}],
+         Quantum`Notation`zz080KetArgs,
+         Editable->True,
+         Selectable->True], "\[RightDoubleBracket]"}], "-"],
+      Quantum`Notation`zz050Commutator,
+      Editable->False,
+      Selectable->False], "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Ham", "=", "  ", 
+     RowBox[{
+      RowBox[{"\[Omega]c", " ", 
+       RowBox[{
+        SuperscriptBox["a", "\[Dagger]"], "\[CenterDot]", "a"}]}], " ", "+", 
+      " ", 
+      RowBox[{
+       SubscriptBox["g", "A"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          SubscriptBox["\[Sigma]p", "A"], "\[CenterDot]", "a"}], " ", "+", 
+         " ", 
+         RowBox[{
+          SubscriptBox["\[Sigma]m", "A"], "\[CenterDot]", 
+          SuperscriptBox["a", "\[Dagger]"]}]}], ")"}]}], "+", " ", 
+      RowBox[{
+       SubscriptBox["\[CapitalDelta]", "A"], 
+       SubscriptBox["\[Sigma]z", "A"]}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"hier", "=", 
+    RowBox[{
+     RowBox[{"QHDHierarchy", "[", 
+      RowBox[{"\[Infinity]", ",", "a", ",", "Ham", ",", 
+       RowBox[{"QHDApproximantFunction", "\[Rule]", " ", "Identity"}], ",", 
+       RowBox[{"QHDHBar", "\[Rule]", " ", "1"}]}], "]"}], "//", 
+     "MatrixForm"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.727087721691313*^9, 3.7270880795868244`*^9}, {
+   3.727088142354759*^9, 3.7270882132300205`*^9}, {3.727088358879075*^9, 
+   3.7270884480057125`*^9}, {3.7270885080898104`*^9, 
+   3.7270885085182047`*^9}, {3.7270918947459974`*^9, 3.727091899075714*^9}, {
+   3.727193300047715*^9, 3.7271933486926403`*^9}, {3.72719341450527*^9, 
+   3.7271934480575743`*^9}, 3.727200373158191*^9, {3.727200465805947*^9, 
+   3.727200539646845*^9}, {3.728057199040333*^9, 3.7280572001352706`*^9}, {
+   3.728057289257873*^9, 3.7280572904323483`*^9}, {3.7280574094715233`*^9, 
+   3.7280574131125326`*^9}, {3.7280574976613383`*^9, 
+   3.7280574980051637`*^9}, {3.7280576201471343`*^9, 3.728057620412239*^9}, {
+   3.7281053489507256`*^9, 3.728105360715251*^9}, {3.728217193877892*^9, 
+   3.7282172600993643`*^9}, {3.7350962099735565`*^9, 3.735096231890295*^9}, {
+   3.735096340488601*^9, 3.73509636177009*^9}, {3.735096496573609*^9, 
+   3.7350965663592052`*^9}, {3.735096633438304*^9, 3.735096647221056*^9}, {
+   3.73509677427715*^9, 3.7350967764181004`*^9}, {3.7390035399216332`*^9, 
+   3.7390036354785986`*^9}, {3.7390036952886095`*^9, 
+   3.7390037011188984`*^9}, {3.7390065900690556`*^9, 3.739006651323743*^9}, {
+   3.83726588893855*^9, 3.837266098139052*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"\<\"QHDLabel\"\>", "\<\"Calculations were stopped at order QHDMaxOrder\
+\[Rule]2\"\>"},
+     {
+      RowBox[{"\[LeftAngleBracket]", "a", "\[RightAngleBracket]"}], 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], " ", "\[Omega]c", " ", 
+        RowBox[{"\[LeftAngleBracket]", "a", "\[RightAngleBracket]"}]}], "-", 
+       RowBox[{"\[ImaginaryI]", " ", 
+        SubscriptBox["g", "A"], " ", 
+        RowBox[{"\[LeftAngleBracket]", 
+         SubscriptBox["\[Sigma]m", "A"], "\[RightAngleBracket]"}]}]}]},
+     {
+      RowBox[{"\[LeftAngleBracket]", 
+       SubscriptBox["\[Sigma]m", "A"], "\[RightAngleBracket]"}], 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "\[ImaginaryI]", " ", 
+        SubscriptBox["\[CapitalDelta]", "A"], " ", 
+        RowBox[{"\[LeftAngleBracket]", 
+         SubscriptBox["\[Sigma]m", "A"], "\[RightAngleBracket]"}]}], "+", 
+       RowBox[{"\[ImaginaryI]", " ", 
+        SubscriptBox["g", "A"], " ", 
+        RowBox[{"\[LeftAngleBracket]", 
+         SubscriptBox[
+          RowBox[{"(", 
+           RowBox[{"a", "\[CenterDot]", 
+            SubscriptBox["\[Sigma]z", "A"]}], ")"}], "\[ScriptS]"], 
+         "\[RightAngleBracket]"}]}]}]},
+     {
+      RowBox[{"\[LeftAngleBracket]", 
+       SubscriptBox[
+        RowBox[{"(", 
+         RowBox[{"a", "\[CenterDot]", 
+          SubscriptBox["\[Sigma]z", "A"]}], ")"}], "\[ScriptS]"], 
+       "\[RightAngleBracket]"}], 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "\[ImaginaryI]", " ", 
+        SubscriptBox["g", "A"], " ", 
+        RowBox[{"\[LeftAngleBracket]", 
+         SubscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["a", "2"], "\[CenterDot]", 
+            SubscriptBox["\[Sigma]p", "A"]}], ")"}], "\[ScriptS]"], 
+         "\[RightAngleBracket]"}]}], "-", 
+       RowBox[{"\[ImaginaryI]", " ", "\[Omega]c", " ", 
+        RowBox[{"\[LeftAngleBracket]", 
+         SubscriptBox[
+          RowBox[{"(", 
+           RowBox[{"a", "\[CenterDot]", 
+            SubscriptBox["\[Sigma]z", "A"]}], ")"}], "\[ScriptS]"], 
+         "\[RightAngleBracket]"}]}], "-", 
+       RowBox[{"\[ImaginaryI]", " ", 
+        SubscriptBox["g", "A"], " ", 
+        RowBox[{"\[LeftAngleBracket]", 
+         SubscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["\[Sigma]m", "A"], "\[CenterDot]", 
+            SubscriptBox["\[Sigma]z", "A"]}], ")"}], "\[ScriptS]"], 
+         "\[RightAngleBracket]"}]}], "+", 
+       RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+        SubscriptBox["g", "A"], " ", 
+        RowBox[{"\[LeftAngleBracket]", 
+         SubscriptBox[
+          RowBox[{"(", 
+           RowBox[{"a", "\[CenterDot]", 
+            SubscriptBox["\[Sigma]m", "A"], "\[CenterDot]", 
+            SuperscriptBox["a", "\[Dagger]"]}], ")"}], "\[ScriptS]"], 
+         "\[RightAngleBracket]"}]}]}]},
+     {
+      RowBox[{"\[LeftAngleBracket]", 
+       SubscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          SubscriptBox["\[Sigma]m", "A"], "\[CenterDot]", 
+          SubscriptBox["\[Sigma]z", "A"]}], ")"}], "\[ScriptS]"], 
+       "\[RightAngleBracket]"}], 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "\[ImaginaryI]", " ", 
+        SubscriptBox["\[CapitalDelta]", "A"], " ", 
+        RowBox[{"\[LeftAngleBracket]", 
+         SubscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["\[Sigma]m", "A"], "\[CenterDot]", 
+            SubscriptBox["\[Sigma]z", "A"]}], ")"}], "\[ScriptS]"], 
+         "\[RightAngleBracket]"}]}], "+", 
+       RowBox[{"\[ImaginaryI]", " ", 
+        SubscriptBox["g", "A"], " ", 
+        RowBox[{"\[LeftAngleBracket]", 
+         SubscriptBox[
+          RowBox[{"(", 
+           RowBox[{"a", "\[CenterDot]", 
+            SubsuperscriptBox["\[Sigma]z", "A", "2"]}], ")"}], "\[ScriptS]"], 
+         "\[RightAngleBracket]"}]}], "+", 
+       RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+        SubscriptBox["g", "A"], " ", 
+        RowBox[{"\[LeftAngleBracket]", 
+         SubscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            SubsuperscriptBox["\[Sigma]m", "A", "2"], "\[CenterDot]", 
+            SuperscriptBox["a", "\[Dagger]"]}], ")"}], "\[ScriptS]"], 
+         "\[RightAngleBracket]"}]}], "-", 
+       RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+        SubscriptBox["g", "A"], " ", 
+        RowBox[{"\[LeftAngleBracket]", 
+         SubscriptBox[
+          RowBox[{"(", 
+           RowBox[{"a", "\[CenterDot]", 
+            SubscriptBox["\[Sigma]m", "A"], "\[CenterDot]", 
+            SubscriptBox["\[Sigma]p", "A"]}], ")"}], "\[ScriptS]"], 
+         "\[RightAngleBracket]"}]}]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.739006728316456*^9, {3.8372659802491245`*^9, 3.837265992298293*^9}}]
+}, Open  ]]
+},
+WindowSize->{1520, 805},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 8998, 239, 741, "Input"],
+Cell[9581, 263, 5292, 134, 185, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
